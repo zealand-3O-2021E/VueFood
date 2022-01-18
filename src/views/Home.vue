@@ -2,7 +2,7 @@
 
 <div class="div">
   <img ref="myImage" src="http://192.168.1.12:8000/stream.mjpg" width="640" height="480">
-  <button v-on:click="capture()">Screen</button>
+  <button class="w-25 rounded-circle " v-on:click="capture()">Screen</button>
 </div>
   <input type="file" @change="analyze( $event )"/>
   <ul id="results">
@@ -11,33 +11,34 @@
     </li>
   </ul>
 
-  <input type="text" @change="rec()" v-model="food"/>
-  <ul id="results">
-    <li v-for="item in recipes" :key="item.id">
-      <img v-bind:src ="item.image" width="50" height="50">
+
+  <div class="row m-auto " id="results">
+    <input class=" text-center " type="text" @change="rec()" v-model="food"/>
+    <div class="m-auto mt-2 col-5" v-for="item in recipes" :key="item.id">
+      <img v-bind:src ="item.image" width="150" height="150">
 
       {{ item.title }}
-      <button v-on:click="getrecipes(item.id)"></button>
-    </li>
-  </ul>
+      <button class="btn btn-outline-primary" v-on:click="getrecipes(item.id)"> See the recipy</button>
+    </div>
+  </div>
 
-  <ul class="text-center"  id="Ingredients">
+  <ul class="mt-5"  id="Ingredients">
     <h2>Ingredients</h2>
-    <li v-for="item in seerecipes.extendedIngredients" :key="item.id">
+    <h6 v-for="item in seerecipes.extendedIngredients" :key="item.id">
      {{item.original}}
-    </li>
+    </h6>
   </ul>
-  <ul class="text-center"  id="steps">
+  <ul class="mt-2"  id="steps">
     <h2>Steps</h2>
-    <li v-for="item in seerecipes.analyzedInstructions[0].steps" :key="item.id">
+    <h6 v-for="item in seerecipes.analyzedInstructions[0].steps" :key="item.id">
       {{ item.number}} {{item.step}}
-    </li>
+    </h6>
   </ul>
-  <ul class="text-center" id="nutrition">
+  <ul  class="mt-2 row" id="nutrition">
     <h2>Nutrition</h2>
-    <li v-for="item in seerecipes.nutrition.nutrients" :key="item.id">
+    <div class="col-3 border border-success" v-for="item in seerecipes.nutrition.nutrients" :key="item.id">
       {{ item.name}} {{item.amount}}{{item.unit}}
-    </li>
+    </div>
   </ul>
 </template>
 
