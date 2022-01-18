@@ -14,7 +14,7 @@ export default {
 
     onMounted(async () => {
       try {
-        const response = await fetch('https://localhost:5002/api/Auth/user', {
+        const response = await fetch('https://rest-service.azurewebsites.net/api/Auth/user', {
           headers: {'Content-Type': 'application/json'},
           credentials: 'include'
         });

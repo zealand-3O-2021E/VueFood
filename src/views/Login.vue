@@ -24,7 +24,7 @@ export default {
     const router = useRouter();
 
     const submit = async () => {
-      await fetch('https://localhost:5002/api/Auth/login', {
+      await fetch('https://rest-service.azurewebsites.net/api/Auth/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include',
