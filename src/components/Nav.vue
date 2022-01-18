@@ -37,7 +37,7 @@ export default {
     const auth = computed(() => store.state.authenticated)
 
     const logout = async () => {
-      await fetch('https://localhost:5002/api/Auth/logout', {
+      await fetch('https://rest-service.azurewebsites.net/api/Auth/logout', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         credentials: 'include',
