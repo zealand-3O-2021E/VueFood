@@ -27,7 +27,7 @@ export default {
     const router = useRouter();
 
     const submit = async () => {
-      await fetch('https://rest-service.azurewebsites.net/api/Auth/register', {
+      await fetch('https://localhost:5002/api/Auth/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)

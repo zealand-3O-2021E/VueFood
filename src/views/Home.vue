@@ -77,7 +77,7 @@ export default {
       formdata.append("files",dataURL);
       fetch({
         type: "POST",
-        url: "https://rest-service.azurewebsites.net/api/Food",
+        url: "https://localhost:5002/api/Food",
         data: {
           imgBase64: formdata
         }
@@ -88,7 +88,7 @@ export default {
     analyze(e){
       const formdata = new FormData();
       formdata.append("files", e.target.files[0]);
-      fetch('https://rest-service.azurewebsites.net/api/Food', {
+      fetch('https://localhost:5002/api/Food', {
         method: 'POST',
         credentials: 'include',
         body: formdata
@@ -103,7 +103,7 @@ export default {
     rec(){
       const urlencoded = new URLSearchParams();
       urlencoded.append("name", this.food);
-      fetch('https://rest-service.azurewebsites.net/api/Food/op',{
+      fetch('https://localhost:5002/api/Food/op',{
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         credentials: 'include',
@@ -118,7 +118,7 @@ export default {
     getrecipes(index){
       const urlencoded = new URLSearchParams();
       urlencoded.append("id", index);
-      fetch('https://rest-service.azurewebsites.net/api/Food/id',{
+      fetch('https://localhost:5002/api/Food/id',{
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         credentials: 'include',
